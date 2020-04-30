@@ -1,0 +1,25 @@
+.content {
+    margin-top: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 600px !important;
+}
+
+.row {
+    display: inline-block;
+}
+
+.colleft {
+    float: left;
+    background-color: rgb(198, 213, 204);
+    width: 30%;
+    height: 500px;
+    padding-right: 15px;
+}
+
+.colright {
+    background-color: rgb(139, 164, 150);
+    width: 70%;
+    height: 500px;
+    text-align: center;
+}

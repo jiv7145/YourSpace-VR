@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel = "stylesheet" type = "text/css" href = "style.css?after">
+    <link rel = "stylesheet" type = "text/css" href = "public/css/style.css?after">
     <link rel = "stylesheet" type = "text/css" href = "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 </head>
 <body>
@@ -31,7 +31,7 @@
     <div class = "col-md-6 login-left">
    
     <h3 style = "margin-bottom : 50px"> Log in to your account</h3>
-    <form action = "validation.php" method = "post">
+    <form action = "public/php/validation.php" method = "post">
     <div class = "form-group">
     <label> Username</label>
     <input type = "text" name = "user" class = "form-control" required>
@@ -48,7 +48,7 @@
     <div class = "col-md-6 login-right">
 
     <h3 style = "margin-bottom : 30px"> Sign up to create account</h3>
-    <form action = "registration.php" method = "post">
+    <form action = "public/php/registration.php" method = "post">
 
     <div class = "form-group">
     <label> First name</label>

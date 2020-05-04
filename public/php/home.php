@@ -12,8 +12,8 @@ if(!isset($_SESSION['username'])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel = "stylesheet" type = "text/css" href = "style.css?after">
-    <link rel = "stylesheet" type = "text/css" href = "home.css?after">
+    <link rel = "stylesheet" type = "text/css" href = "../css/style.css?after">
+    <link rel = "stylesheet" type = "text/css" href = "../css/home.css?after">
 
     <link rel = "stylesheet" type = "text/css" href = "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 </head>
@@ -50,7 +50,7 @@ if(!isset($_SESSION['username'])){
 </ul>
     </div>
     <div class = "colright">
-        CALENDAR
+        CALENDAR FOR SCHEDULING
     </div>
     </div>
     </div>

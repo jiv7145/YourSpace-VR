@@ -66,9 +66,9 @@ if($num == 1){
             </div>
             <div class="login-box">
                 <div class="row">
-                    <div class="col-md-6 login" style= "margin:auto">
+                    <div class="col-md-6 login" style="margin:auto">
 
-                        <h3 style="margin-bottom : 30px"> Sign up to create account</h3>
+                        <h3 class = "subHeading"> Sign up to create account</h3>
                         <form action="registration.php" method="post">
 
                             <div class="form-group">

@@ -29,19 +29,20 @@
 
             </div>
         </div>
-        <div id="payment">
-            <h3 class="paymentHeader"> Pay Here</h3>
+        <div class="login-box">
+            <h3 class = "subHeading"> Pay Here</h3>
             <form action="checkout.php" method="post" autocomplete="off">
+
                 <label for="item">
                         Product
-                        <input type = "text" name = "product">
+                        <input type = "text" name = "product" class = "form-control">
                     </label>
 
                 <label for="amount">
                         Price
-                        <input type = "text" name = "price">
+                        <input type = "text" name = "price" class = "form-control">
                     </label>
-                <input class="btn btn-primary" type="submit" value="Pay with PayPal">
+                <input style="margin-top: 20px" class="btn btn-primary float-right" type="submit" value="Pay with PayPal" class="form-control">
             </form>
         </div>
     </div>

@@ -36,6 +36,11 @@ if($num == 1){
     , '$reference', '$counselling_exp', '$goal')";
    mysqli_query($con, $reg);
    
+   if(isset($_POST['sendmail'])){
+    (mail($_POST['email'], 'Registration Confirmation', 'You have successfully created your account with YourSpace.')); 
+       
+   }
+
    header('location:login.php');
 }
 

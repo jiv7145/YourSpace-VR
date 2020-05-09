@@ -11,12 +11,15 @@ $con = mysqli_connect('remotemysql.com', 'SKIR56Zums', 'JioDYRliuC');
 mysqli_select_db($con,'SKIR56Zums');
 $email = $_POST['email'];
 $pass = $_POST['password'];
-
+$name = mysqli_query($con, " select name from usertable where email = '$email'");
 $s = " select * from usertable where email = '$email' && password = '$pass'";
 $result = mysqli_query($con, $s);
+
+$row = mysqli_fetch_array($name,MYSQLI_ASSOC);
 $num = mysqli_num_rows($result);
+
 if($num == 1){
-    $_SESSION['username'] = $email;
+    $_SESSION['username'] = $row;
     header('location:home.php');
 }else{
   

@@ -58,9 +58,11 @@
     for ($i=1; $i<=100; $i++)
     {
         ?>
+            <option value ="none" selected disabled hidden>Select your age</option>
             <option value="<?php echo $i;?>"><?php echo $i;?></option>
         <?php
     }
+
 ?>
 </select>
                         </div>
@@ -100,7 +102,7 @@
                             <label> Your counselling goal<span class="required"> *</span></label>
                             <input type="text" name="goal" class="form-control" required>
                         </div>
-                        <button type="submit" class="btn btn-primary" id="btnCreate"> CREATE ACCOUNT  </button>
+                        <button type="submit" name="sendmail" class="btn btn-primary" id="btnCreate"> CREATE ACCOUNT  </button>
                     </form>
                 </div>
 

@@ -37,23 +37,20 @@ if(!isset($_SESSION['username'])){
                 </div>
             </div>
             <h2 style="margin-top: 50px"> Welcome
-                <?php echo $_SESSION['username'];?>
+                <?php echo implode($_SESSION['username']);?>
             </h2>
 
             <div class="content">
                 <div class="row">
 
                     <div class="colleft">
+                    <form action="../../../codei" method="post">
+
                         <h4 style="padding : 20px 20px"> My appointments</h4><br>
-                        <ul>
-                            <li>Proident cupidatat fugiat ut et </li>
-                            <li>Duis minim magna enim enim quis proident.</li>
-                            <li>Fugiat cillum veniam consequat tempor proident</li>
-                        </ul>
+                        <button style = "margin-left:20px" type="submit" class="btn btn-primary" id="btnBooking"> Book Appointment </button>
+                    </form>
                     </div>
-                    <div class="colright">
-                        CALENDAR FOR SCHEDULING
-                    </div>
+                  
                 </div>
             </div>
         </div>

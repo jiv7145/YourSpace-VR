@@ -1,4 +1,10 @@
 <?php
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require '../../vendor/PhpMailer/PHPMailer/src/Exception.php';
+require '../../vendor/PhpMailer/PHPMailer/src/PHPMailer.php';
+require '../../vendor/PhpMailer/PHPMailer/src/SMTP.php';
 session_start();
 //header('location:index.php');
 //devel
@@ -6,6 +12,7 @@ session_start();
 
 //remote
 $con = mysqli_connect('remotemysql.com', 'SKIR56Zums', 'JioDYRliuC');
+
 mysqli_select_db($con,'SKIR56Zums');
 $name = $_POST['name'];
 $pass = $_POST['password'];
@@ -36,10 +43,48 @@ if($num == 1){
     , '$reference', '$counselling_exp', '$goal')";
    mysqli_query($con, $reg);
    
-   if(isset($_POST['sendmail'])){
-    (mail($_POST['email'], 'Registration Confirmation', 'You have successfully created your account with YourSpace.')); 
+//    if(isset($_POST['sendmail'])){
+//     (mail($_POST['email'], 'Registration Confirmation', 'You have successfully created your account with YourSpace.')); 
        
-   }
+//    }
+
+
+$mail = new PHPMailer(false);                              // Passing `true` enables exceptions
+try {
+    //Server settings
+    $mail->SMTPDebug = 2;                                 // Enable verbose debug output
+    $mail->isSMTP();                                      // Set mailer to use SMTP
+    $mail->Host = "ssl://smtp.gmail.com"; // SMTP server                  // Specify main and backup SMTP servers
+    $mail->SMTPAuth = true;                               // Enable SMTP authentication
+    $mail->Username = 'devel4800test@gmail.com';              // SMTP username
+    $mail->Password = 'Yourspace_4800';                           // SMTP password
+                            // Enable TLS encryption, `ssl` also accepted
+    $mail->Port = 465;                                    // TCP port to connect to
+
+    //Recipients
+    $mail->setFrom('devel4800test@gmail.com', 'Mailer');          //This is the email your form sends From
+    $mail->addAddress($_POST['email'], 'Joe User'); // Add a recipient address
+    //$mail->addAddress('contact@example.com');               // Name is optional
+    //$mail->addReplyTo('info@example.com', 'Information');
+    //$mail->addCC('cc@example.com');
+    //$mail->addBCC('bcc@example.com');
+
+    //Attachments
+    //$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+    //$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+
+    //Content
+    $mail->isHTML(true);                                  // Set email format to HTML
+    $mail->Subject = 'Subject line goes here';
+    $mail->Body    = 'Body text goes here';
+    //$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+    // $mail->send();
+    echo 'Message has been sent';
+} catch (Exception $e) {
+    echo 'Message could not be sent.';
+    echo 'Mailer Error: ' . $mail->ErrorInfo;
+}
 
    header('location:login.php');
 }

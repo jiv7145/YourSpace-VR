@@ -8,11 +8,12 @@ require '../../vendor/autoload.php';
 session_start();
 //header('location:index.php');
 //devel
-// $con = mysqli_connect('localhost', 'root', 'comp4800');
+$con = mysqli_connect('localhost', 'root', '');
 
 //remote
-$con = mysqli_connect('remotemysql.com', 'SKIR56Zums', 'JioDYRliuC');
-mysqli_select_db($con,'SKIR56Zums');
+// $con = mysqli_connect('remotemysql.com', 'SKIR56Zums', 'JioDYRliuC');
+// mysqli_select_db($con,'SKIR56Zums');
+mysqli_select_db($con,'user');
 $name = $_POST['name'];
 $pass = $_POST['password'];
 $email = $_POST['email'];

@@ -3,12 +3,13 @@ session_start();
 // header('location:login.php');
 
 //devel
-// $con = mysqli_connect('localhost', 'root', 'comp4800');
+$con = mysqli_connect('localhost', 'root', '');
 
 //remote
-$con = mysqli_connect('remotemysql.com', 'SKIR56Zums', 'JioDYRliuC');
+// $con = mysqli_connect('remotemysql.com', 'SKIR56Zums', 'JioDYRliuC');
 
-mysqli_select_db($con,'SKIR56Zums');
+// mysqli_select_db($con,'SKIR56Zums');
+mysqli_select_db($con,'user');
 $email = $_POST['email'];
 $pass = $_POST['password'];
 $name = mysqli_query($con, " select name from usertable where email = '$email'");

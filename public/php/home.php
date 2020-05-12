@@ -49,6 +49,9 @@ if(!isset($_SESSION['username'])){
                         <h4 style="padding : 20px 20px"> My appointments</h4><br>
                         <button style = "margin-left:20px" type="submit" class="btn btn-primary" id="btnBooking"> Book Appointment </button>
                     </form>
+                    <form action="survey.php" method="post">
+                        <button style = "margin-left:20px" type="submit" class="btn btn-primary" id="btnServey"> Survey! </button>
+                    </form>
                     </div>
                   
                 </div>

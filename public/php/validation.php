@@ -20,6 +20,7 @@ $num = mysqli_num_rows($result);
 
 if($num == 1){
     $_SESSION['username'] = $row;
+    $_SESSION['emailaddress'] = $email;
     header('location:home.php');
 }else{
   

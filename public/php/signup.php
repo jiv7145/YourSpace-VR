@@ -12,14 +12,16 @@
 <body>
 
     <div class="container">
-        <div id="header">
-            <h2 id="logo"> YourSpace </h2>
+    <div id="header">
+            <a href="../../index.php">
+                <h2 id="logo"> YourSpace </h2>
+            </a>
             <div class="topnav">
 
                 <a href="#">About</a>
                 <a href="#">Contact</a>
                 <a href="#">Pricing</a>
-                <a href="#">Download</a>
+                <a href="download.php">Download</a>
             </div>
         </div>
         <div id="info">
@@ -50,7 +52,7 @@
                             <label> Password<span class="required"> *</span></label>
                             <input type="password" name="password" class="form-control" required>
                         </div>
-                        
+
                         <button type="submit" name="sendmail" class="btn btn-primary" id="btnCreate"> CREATE ACCOUNT  </button>
                     </form>
                 </div>

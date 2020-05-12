@@ -5,10 +5,19 @@
 #logo {
     float: left;
     margin-right: 50px;
+    color: black !important;
 }
 
 .subHeading {
     margin-bottom: 40px;
+}
+
+.divdeletion {
+    text-align: center;
+}
+
+.h3deletion {
+    margin-top: 100px !important;
 }
 
 
@@ -33,13 +42,18 @@
     color: black;
 }
 
-
-/* signup/signin */
+.sidenav a:hover {
+    color: #064579;
+}
 
 .login-box {
     max-width: 1000px;
     float: none;
     margin: 50px auto;
+}
+
+.sidenav {
+    margin-top: 30px;
 }
 
 .login-left,
@@ -48,6 +62,11 @@
     height: 700px;
     padding-right: 50px !important;
     padding-left: 50px !important;
+}
+
+.colleft {
+    background-color: blue;
+    margin-top: 30px;
 }
 
 .login-left {
@@ -61,10 +80,15 @@ h1 {
 }
 
 #btnCreate,
-#btnLogin {
+#btnLogin,
+#btnDownload {
     width: 100% !important;
     margin-top: 30px;
     margin-bottom: 0;
+}
+
+.btnsetting {
+    margin-bottom: 10px;
 }
 
 .container {

@@ -20,13 +20,15 @@ if(!isset($_SESSION['username'])){
     <body>
         <div class="container">
             <div id="header">
-                <h2 id="logo"> YourSpace </h2>
+                <a href="home.php">
+                    <h2 id="logo"> YourSpace </h2>
+                </a>
                 <div class="topnav">
 
                     <a href="#">About</a>
                     <a href="#">Contact</a>
                     <a href="#">Pricing</a>
-                    <a href="#">Download</a>
+                    <a href="download.php">Download</a>
                     <div id="logout">
                         <a class="float-right" href="logout.php"> Logout </a>
                     </div>
@@ -41,20 +43,23 @@ if(!isset($_SESSION['username'])){
             </h2>
 
             <div class="content">
-                <div class="row">
+                <div class="row ">
 
-                    <div class="colleft">
-                    <form action="../../../codei" method="post">
-
-                        <h4 style="padding : 20px 20px"> My appointments</h4><br>
-                        <button style = "margin-left:20px" type="submit" class="btn btn-primary" id="btnBooking"> Book Appointment </button>
-                    </form>
-                    <form action="survey.php" method="post">
-                        <button style = "margin-left:20px" type="submit" class="btn btn-primary" id="btnServey"> Survey! </button>
-                    </form>
+                    <div class="sidenav">
+                        <form action="../../codei" method="post">
+                            <button style="margin-left:20px" type="submit" class="btn btn-primary btnsetting" id="btnBooking"> Book Appointment </button>
+                        </form>
+                        <form action="survey.php" method="post">
+                            <button style="margin-left:20px" type="submit" class="btn btn-primary btnsetting" id="btnSurvey"> Take Survey </button>
+                        </form>
+                        <form action = "deleteAccount.php" method = "post">
+                            <button style="margin-left:20px" type="submit" class="btn btn-primary btnsetting"  id="btnDeleteAccount"> Delete Account </button>
+                        </form>
                     </div>
-                  
+
                 </div>
+
+        
             </div>
         </div>
     </body>

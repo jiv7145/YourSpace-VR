@@ -41,13 +41,15 @@ if($num == 1){
 
         <div class="container">
             <div id="header">
-                <h2 id="logo"> YourSpace </h2>
+                <a href="../../index.php">
+                    <h2 id="logo"> YourSpace </h2>
+                </a>
                 <div class="topnav">
 
                     <a href="#">About</a>
                     <a href="#">Contact</a>
                     <a href="#">Pricing</a>
-                    <a href="#">Download</a>
+                    <a href="download.php">Download</a>
                 </div>
             </div>
 
@@ -56,7 +58,7 @@ if($num == 1){
 
                     <div class="col-md-6 login-left" style="margin:auto">
 
-                        <h3 class = "subHeading"> Log in to your account</h3>
+                        <h3 class="subHeading"> Log in to your account</h3>
                         <form action="validation.php" method="post">
                             <div class="form-group">
                                 <p style="color:red"> Incorrect Email or password </p>

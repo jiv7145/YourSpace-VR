@@ -41,18 +41,18 @@ try {
     $mail->Host       = 'smtp.mailgun.org';                    // Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
     $mail->Username   = 'postmaster@sandboxaea20dd704434c90afa8bb9243767d46.mailgun.org';                     // SMTP username
-    $mail->Password   = 'af8987050db1e591a89669b330487adc-3e51f8d2-728169a6';                               // SMTP password
+    $mail->Password   = 'ccfc97954dace942efcd0e0d9d4842c9-3e51f8d2-5dacb6e5';                               // SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
     $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
 
     //Recipients
-    $mail->setFrom('postmaster@sandboxaea20dd704434c90afa8bb9243767d46.mailgun.org', 'Mailer');
-    $mail->addAddress('devel4800test@gmail.com', 'Joe User');     // Add a recipient
+    $mail->setFrom('postmaster@sandboxaea20dd704434c90afa8bb9243767d46.mailgun.org', 'Yourspace');
+    $mail->addAddress('devel4800test@gmail.com', $name);     // Add a recipient
    
     // Content
     $mail->isHTML(true);                                  // Set email format to HTML
     $mail->Subject = 'Registration confirmation';
-    $mail->Body    = "Hi $name ,<br> You have successfully registered your Yourspace account";
+    $mail->Body    = "Hi $name,<br> You have successfully registered your Yourspace account";
    
 
     $mail->send();

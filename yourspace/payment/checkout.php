@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 use PayPal\Api\Payer;
 use PayPal\Api\Item;
 use PayPal\Api\ItemList;
@@ -12,8 +12,9 @@ use PayPal\Api\Payment;
 require '../app/start.php';
 
 $product = $_POST['product'];
+$_SESSION['title'] = $_POST['title'];
 $price = $_POST['price'];
-$shipping = 2.00;
+$shipping = 0.00;
 
 $total = $price + $shipping;
 

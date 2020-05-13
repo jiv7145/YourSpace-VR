@@ -1,10 +1,20 @@
 <?php
-
 session_start();
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
-$con = mysqli_connect('remotemysql.com', 'SKIR56Zums', 'JioDYRliuC');
+require '../../vendor/autoload.php';
+// $con = mysqli_connect('remotemysql.com', 'SKIR56Zums', 'JioDYRliuC');
+//header('location:index.php');
+//devel
+$con = mysqli_connect('localhost', 'root', '');
 
-mysqli_select_db($con,'SKIR56Zums');
+//remote
+// $con = mysqli_connect('remotemysql.com', 'SKIR56Zums', 'JioDYRliuC');
+// mysqli_select_db($con,'SKIR56Zums');
+mysqli_select_db($con,'user');
+// mysqli_select_db($con,'SKIR56Zums');
 $email = $_POST['email'];
 $pass = $_POST['password'];
 $s = " select * from usertable where email = '$email' && password = '$pass'";
@@ -16,6 +26,39 @@ if($num == 1){
     $reg = "DELETE FROM usertable WHERE email = '$email'";
    mysqli_query($con, $reg);
    header('location:../../index.php');
+
+   // Instantiation and passing `true` enables exceptions
+$mail = new PHPMailer(true);
+
+try {
+    //Server settings
+    $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      // Enable verbose debug output
+    $mail->isSMTP();                                            // Send using SMTP
+    $mail->Host       = 'smtp.mailgun.org';                    // Set the SMTP server to send through
+    $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+    $mail->Username   = 'postmaster@sandboxaea20dd704434c90afa8bb9243767d46.mailgun.org';                     // SMTP username
+    $mail->Password   = 'ccfc97954dace942efcd0e0d9d4842c9-3e51f8d2-5dacb6e5';                               // SMTP password
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+    $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+
+    //Recipients
+
+    $name = implode($_SESSION['username']);
+
+    $mail->setFrom('postmaster@sandboxaea20dd704434c90afa8bb9243767d46.mailgun.org', 'Yourspace');
+    $mail->addAddress('devel4800test@gmail.com', $name);     // Add a recipient
+   
+    // Content
+    $mail->isHTML(true);                                  // Set email format to HTML
+    $mail->Subject = 'Account Deletion confirmation';
+    $mail->Body    = "Hi $name,<br> You have successfully deleted your Yourspace account";
+   
+
+    $mail->send();
+    echo 'Message has been sent';
+} catch (Exception $e) {
+    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+}
 
 }else{
   

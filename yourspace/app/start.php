@@ -1,7 +1,7 @@
 <?php
 require '../vendor/autoload.php';
 
-define('SITE_URL', 'http://localhost/userregistration/payment');
+define('SITE_URL', 'http://localhost/yourspace/payment');
 
 $paypal = new \PayPal\Rest\ApiContext(
     new \PayPal\Auth\OAuthTokenCredential(

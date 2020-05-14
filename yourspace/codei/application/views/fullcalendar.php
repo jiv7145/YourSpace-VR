@@ -15,6 +15,8 @@
                 minTime: "09:00:00",
                 maxTime: "21:00:00",
 				snapDuration:"01:00" ,
+               eventOverlap:false,
+               selectOverlap:false,
                 editable: true,
                 header: {
                     left: 'prev,next today',

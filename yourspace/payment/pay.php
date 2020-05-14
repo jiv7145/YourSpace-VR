@@ -44,7 +44,7 @@
                     // $con = mysqli_connect('remotemysql.com', 'SKIR56Zums', 'JioDYRliuC');
 
                     // mysqli_select_db($con,'SKIR56Zums');
-                    mysqli_select_db($con,'yourspace');
+                     mysqli_select_db($con,'yourspace');
                     $event = " select * from events";
                     $result = mysqli_query($con, $event);
                     $num = mysqli_num_rows($result);
@@ -58,7 +58,7 @@
                     
             for ($i = 0; $i < $num; $i++) {
                 $eachRow = "<label for='item'>
-                Product
+                Appointment
                 <input type = 'text' name = 'product' class = 'form-control' value = '$storeArray[$i]'>
             </label>
 

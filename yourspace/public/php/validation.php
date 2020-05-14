@@ -7,7 +7,6 @@ session_start();
 
 // //remote
 // $con = mysqli_connect('remotemysql.com', 'SKIR56Zums', 'JioDYRliuC');
-
 // mysqli_select_db($con,'SKIR56Zums');
  mysqli_select_db($con,'user');
 $email = $_POST['email'];

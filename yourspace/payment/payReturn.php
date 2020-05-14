@@ -78,6 +78,7 @@ mysqli_query($con, $paid);
         </div>
 
         <div style ="text-align : center; margin-top:200px" class="login-box">
+<<<<<<< Updated upstream
             <!-- <div class="col-md-6 login-left" style="margin: auto"> -->
 
                 <!-- <h3 class="subHeading"> Log in to your account</h3>
@@ -95,6 +96,12 @@ mysqli_query($con, $paid);
                 <h2> Payment was made, thank you! <br> <h4> <a href = "pay.php" >Back to checkout</h3></h2>
 
             <!-- </div> -->
+=======
+          
+                <h2> Payment was made, thank you! <br> <h4> <a href = "pay.php" >Back to checkout</h3></h2>
+
+  
+>>>>>>> Stashed changes
 
         </div>
     </div>

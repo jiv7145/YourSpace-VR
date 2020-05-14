@@ -37,6 +37,7 @@
                     if (title && start.isAfter(moment())) {
                         var start = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");
                         var end = $.fullCalendar.formatDate(end, "Y-MM-DD HH:mm:ss");
+                  
                         $.ajax({
                             url: "<?php echo base_url(); ?>fullcalendar/insert",
                             type: "POST",
@@ -44,6 +45,7 @@
                                 title: title,
                                 start: start,
                                 end: end,
+                                
                             },
                             success: function() {
                                 calendar.fullCalendar('refetchEvents');

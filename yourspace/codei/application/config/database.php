@@ -71,6 +71,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | the query builder class.
 */
 $active_group = 'default';
+$active_record = TRUE;
 $query_builder = TRUE;
 
 $db['default'] = array(
@@ -85,7 +86,7 @@ $db['default'] = array(
 	'db_debug' => TRUE,
 	'cache_on' => FALSE,
 	'cachedir' => '',
-	'char_set' => 'utf8',
+	'char_set' => 'utf8mb4',
 	'dbcollat' => 'utf8_general_ci',
 	'swap_pre' => '',
 	'encrypt' => FALSE,
@@ -94,3 +95,5 @@ $db['default'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
+
+?>

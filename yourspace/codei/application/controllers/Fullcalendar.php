@@ -22,6 +22,7 @@ class Fullcalendar extends CI_Controller {
 
  function load()
  {
+     
   $event_data = $this->fullcalendar_model->fetch_all_event();
   foreach($event_data->result_array() as $row)
   {
@@ -39,10 +40,14 @@ class Fullcalendar extends CI_Controller {
  {
   if($this->input->post('title'))
   {
+    $name = $_SESSION['username'];
+
    $data = array(
     'title'  => $this->input->post('title'),
     'start_event'=> $this->input->post('start'),
-    'end_event' => $this->input->post('end')
+    'end_event' => $this->input->post('end'),
+    'admin'=>('False'),
+    'name'=>implode($name),
    );
    $this->fullcalendar_model->insert_event($data);
 
@@ -69,7 +74,7 @@ try {
     $mail->Body    = "Hi $name,<br> You have successfully booked an appointment";
    
 
-    $mail->send();
+   // $mail->send();
     echo 'Message has been sent';
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";

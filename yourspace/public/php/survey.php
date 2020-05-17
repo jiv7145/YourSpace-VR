@@ -86,6 +86,7 @@
 
                         <button type="submit" class="btn btn-primary" id="btnCreate"> SUBMIT SURVEY </button>
                     </form>
+                    
                 </div>
 
             </div>

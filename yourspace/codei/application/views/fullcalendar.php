@@ -150,7 +150,7 @@
     <br />
     <div class = "container">
      <div id="header">
-            <a href="home.php">
+            <a href="../public/php/home.php">
                 <h2 id="logo"> YourSpace </h2>
             </a>
             <div class="topnav">
@@ -158,7 +158,7 @@
                 <a href="#">About</a>
                 <a href="#">Contact</a>
                 <a href="#">Pricing</a>
-                <a href="download.php">Download</a>
+                <a href="../public/php/download.php">Download</a>
             </div>
         </div>
     </div>

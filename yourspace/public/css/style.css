@@ -108,3 +108,9 @@ h1 {
 .required {
     color: red;
 }
+
+#Bar {
+    position: absolute;
+    /*newly added*/
+    top: 100px;
+}

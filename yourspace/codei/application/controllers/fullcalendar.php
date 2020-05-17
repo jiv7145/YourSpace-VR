@@ -8,6 +8,7 @@ use PHPMailer\PHPMailer\Exception;
 
 require '../vendor/autoload.php';
 class Fullcalendar extends CI_Controller {
+  
 
  public function __construct()
  {
@@ -22,7 +23,9 @@ class Fullcalendar extends CI_Controller {
 
  function load()
  {
-  $event_data = $this->fullcalendar_model->fetch_all_event();
+  $name = $_SESSION['username'];
+  $email = $_SESSION['emailaddress'];
+  $event_data = $this->fullcalendar_model->fetch_all_event($email);
   foreach($event_data->result_array() as $row)
   {
    $data[] = array(
@@ -37,12 +40,19 @@ class Fullcalendar extends CI_Controller {
 
  function insert()
  {
+  $name = $_SESSION['username'];
+  $email = $_SESSION['emailaddress'];
   if($this->input->post('title'))
   {
+   
+
    $data = array(
     'title'  => $this->input->post('title'),
     'start_event'=> $this->input->post('start'),
-    'end_event' => $this->input->post('end')
+    'end_event' => $this->input->post('end'),
+    'admin'=>('False'),
+    'name'=>implode($name),
+    'email' =>$email
    );
    $this->fullcalendar_model->insert_event($data);
 
@@ -58,7 +68,7 @@ try {
     $mail->Password   = 'ccfc97954dace942efcd0e0d9d4842c9-3e51f8d2-5dacb6e5';                               // SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
     $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
-    $name = implode($_SESSION['username']);
+   
     //Recipients
     $mail->setFrom('postmaster@sandboxaea20dd704434c90afa8bb9243767d46.mailgun.org', 'Yourspace');
     $mail->addAddress('devel4800test@gmail.com', $name);     // Add a recipient
@@ -66,10 +76,10 @@ try {
     // Content
     $mail->isHTML(true);                                  // Set email format to HTML
     $mail->Subject = 'Booking confirmation';
-    $mail->Body    = "Hi $name,<br> You have successfully booked an appointment";
+    $mail->Body    = "Hi $name, You have successfully booked an appointment";
    
 
-    $mail->send();
+   // $mail->send();
     echo 'Message has been sent';
 } catch (Exception $e) {
     echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";

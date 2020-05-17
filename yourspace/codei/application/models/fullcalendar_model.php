@@ -2,9 +2,9 @@
 
 class Fullcalendar_model extends CI_Model
 {
- function fetch_all_event(){
+ function fetch_all_event($email){
   $this->db->order_by('id');
-  return $this->db->get('events');
+  return $this->db->get_where('events', ['email' => $email]);
  }
 
  function insert_event($data)

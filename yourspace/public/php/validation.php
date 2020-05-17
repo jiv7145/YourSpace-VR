@@ -14,14 +14,22 @@ $pass = $_POST['password'];
 $name = mysqli_query($con, " select name from usertable where email = '$email'");
 $s = " select * from usertable where email = '$email' && password = '$pass'";
 $result = mysqli_query($con, $s);
+$admin = mysqli_query($con, " select admin from usertable where email = '$email' && password = '$pass'");
 
 $row = mysqli_fetch_array($name,MYSQLI_ASSOC);
+$rowAdmin = mysqli_fetch_array($admin,MYSQLI_ASSOC);
 $num = mysqli_num_rows($result);
 
 if($num == 1){
     $_SESSION['username'] = $row;
     $_SESSION['emailaddress'] = $email;
-    header('location:home.php');
+    if(implode($rowAdmin) == 'False'){
+        header('location:home.php');
+    }else{
+        header('location:homeAdmin.php');
+    }
+
+    
 }else{
   
 }

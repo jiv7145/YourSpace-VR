@@ -109,8 +109,4 @@ h1 {
     color: red;
 }
 
-#Bar {
-    position: absolute;
-    /*newly added*/
-    top: 100px;
-}
+#Bar {}

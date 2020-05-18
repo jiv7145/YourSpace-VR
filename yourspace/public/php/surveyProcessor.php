@@ -61,7 +61,7 @@ try {
    
     //Recipients
     $mail->setFrom('postmaster@sandboxaea20dd704434c90afa8bb9243767d46.mailgun.org', 'Yourspace');
-    $mail->addAddress('devel4800test@gmail.com', $name);     // Add a recipient
+    $mail->addAddress('devel4800test@gmail.com', "admin");     // Add a recipient
    
     // Content
     $mail->isHTML(true);                                  // Set email format to HTML
@@ -83,8 +83,41 @@ try {
 
 
    $mail->send();
+   
    header('location:home.php');
 } catch (Exception $e) {
+}
+
+
+$mail2 = new PHPMailer(true);
+try {
+    //Server settings
+    $mail2->SMTPDebug = SMTP::DEBUG_SERVER;                      // Enable verbose debug output
+    $mail2->isSMTP();                                            // Send using SMTP
+    $mail2->Host       = 'smtp.mailgun.org';                    // Set the SMTP server to send through
+    $mail2->SMTPAuth   = true;                                   // Enable SMTP authentication
+    $mail2->Username   = 'postmaster@sandboxaea20dd704434c90afa8bb9243767d46.mailgun.org';                     // SMTP username
+    $mail2->Password   = 'ccfc97954dace942efcd0e0d9d4842c9-3e51f8d2-5dacb6e5';                               // SMTP password
+    $mail2->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
+    $mail2->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
+   
+    //Recipients
+    $mail2->setFrom('postmaster@sandboxaea20dd704434c90afa8bb9243767d46.mailgun.org', 'Yourspace');
+    $mail2->addAddress('devel4800test@gmail.com', "User");     // Add a recipient
+   
+    // Content
+    $mail2->isHTML(true);                                  // Set email format to HTML
+    $mail2->Subject = 'Booking Confirmation';
+    $body   = "Hi $name, you have booked a new appointment <br>";
+    $body   .= "Date:  $date <br>";
+    $body   .= "Start: $start <br>";
+    $body   .="End:  $end <br>";
+  
+    $mail2->Body = $body;
+
+
+   $mail2->send();
+   } catch (Exception $e) {
 }
 
 

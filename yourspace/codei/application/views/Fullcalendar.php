@@ -15,6 +15,7 @@
             HideID.style.display = "none";
         }
         $(document).ready(function() {
+
             var calendar = $('#calendar').fullCalendar({
                 defaultView: 'agendaWeek',
                 minTime: "09:00:00",
@@ -28,7 +29,16 @@
                     center: 'title',
                     right: null,
                 },
-                events: "<?php echo base_url(); ?>fullcalendar/load",
+                eventSources: [
+      {
+        url: "<?php echo base_url(); ?>fullcalendar/load"
+       
+      },{
+        url: "<?php echo base_url(); ?>fullcalendar/loadBooked",
+        color: "grey",
+        editable: false
+      }
+    ],
                 selectable: true,
                 selectHelper: true,
                 businessHours: {
@@ -50,10 +60,8 @@
                         $("#btnSubmit").click(function() {
 
                         
-                            title = "Appointment";
-
+                            title = "<?php echo implode($_SESSION['username']); ?>";
                             var s = moment(start).format('Y-MM-DD HH:mm:ss');
-
                             var e = moment(end).format('Y-MM-DD HH:mm:ss');
 
                             $.ajax({

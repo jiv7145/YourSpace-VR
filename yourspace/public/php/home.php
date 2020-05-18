@@ -49,9 +49,7 @@ if(!isset($_SESSION['username'])){
                         <form action="../../codei" method="post">
                             <button style="margin-left:20px" type="submit" class="btn btn-primary btnsetting" id="btnBooking"> Book Appointment </button>
                         </form>
-                        <form action="survey.php" method="post">
-                            <button style="margin-left:20px" type="submit" class="btn btn-primary btnsetting" id="btnSurvey"> Take Survey </button>
-                        </form>
+                    
                         <form action = "deleteAccount.php" method = "post">
                             <button style="margin-left:20px" type="submit" class="btn btn-primary btnsetting"  id="btnDeleteAccount"> Delete Account </button>
                         </form>

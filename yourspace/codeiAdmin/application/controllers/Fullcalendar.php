@@ -38,7 +38,23 @@ class Fullcalendar extends CI_Controller {
   }
   echo json_encode($data);
  }
+ function loadBooked(){
+    $name = $_SESSION['username'];
+    $email = $_SESSION['emailaddress'];
+    $event_data = $this->fullcalendar_model->fetch_all_event_booked($email);
 
+    foreach($event_data->result_array() as $row)
+    {
+     $data[] = array(
+      'id' => $row['id'],
+      'title' => $row['title'],
+      'start' => $row['start_event'],
+      'end' => $row['end_event']
+     );
+    }
+    echo json_encode($data);
+
+ }
  function insert()
  {
   $name = $_SESSION['username'];

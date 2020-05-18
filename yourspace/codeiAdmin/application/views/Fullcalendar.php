@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../public/css/style.css?after">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
@@ -25,7 +26,7 @@
                     right: null,
                 },
                 events: "<?php echo base_url(); ?>Fullcalendar/load",
-                selectable: true,
+                selectable: false,
                 selectHelper: true,
                 businessHours: {
                     dow: [1, 2, 3, 4, 5],
@@ -127,7 +128,22 @@
 </head>
 
 <body>
+<body>
     <br />
+    <div class="container">
+        <div id="header">
+            <a href="../public/php/home.php">
+                <h2 id="logo"> YourSpace </h2>
+            </a>
+            <div class="topnav">
+
+                <a href="#">About</a>
+                <a href="#">Contact</a>
+                <a href="#">Pricing</a>
+                <a href="../public/php/download.php">Download</a>
+            </div>
+        </div>
+    </div>
   
     <div class="container">
         <div id="calendar"></div>

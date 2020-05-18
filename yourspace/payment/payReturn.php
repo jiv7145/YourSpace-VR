@@ -42,7 +42,7 @@ die();
 
 
 $title = $_SESSION['title'];
-$paid = " delete from events where title = '$title'";
+$paid = " delete from events where start_event = '$title'";
 mysqli_query($con, $paid);
 
 // echo 'Payment made!';

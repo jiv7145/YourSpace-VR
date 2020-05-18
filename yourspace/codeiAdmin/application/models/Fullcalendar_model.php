@@ -6,6 +6,11 @@ class Fullcalendar_model extends CI_Model
   $this->db->order_by('id');
   return $this->db->get('events');
  }
+ function fetch_all_event_booked($email){
+    $this->db->order_by('id');
+      return $this->db->get_where('events', ['email !=' => $email]);
+    
+     }
 
  function insert_event($data)
  {

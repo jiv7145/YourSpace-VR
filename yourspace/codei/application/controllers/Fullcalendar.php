@@ -13,7 +13,7 @@ class Fullcalendar extends CI_Controller {
  public function __construct()
  {
   parent::__construct();
-  $this->load->model('fullcalendar_model');
+  $this->load->model('Fullcalendar_model');
  }
 
  function index()
@@ -25,7 +25,7 @@ class Fullcalendar extends CI_Controller {
  {
   $name = $_SESSION['username'];
   $email = $_SESSION['emailaddress'];
-  $event_data = $this->fullcalendar_model->fetch_all_event($email);
+  $event_data = $this->Fullcalendar_model->fetch_all_event($email);
   foreach($event_data->result_array() as $row)
   {
    $data[] = array(
@@ -36,6 +36,25 @@ class Fullcalendar extends CI_Controller {
    );
   }
   echo json_encode($data);
+
+
+ }
+ function loadBooked(){
+    $name = $_SESSION['username'];
+    $email = $_SESSION['emailaddress'];
+    $event_data = $this->Fullcalendar_model->fetch_all_event_booked($email);
+
+    foreach($event_data->result_array() as $row)
+    {
+     $data[] = array(
+      'id' => $row['id'],
+      'title' => $row['title'],
+      'start' => $row['start_event'],
+      'end' => $row['end_event']
+     );
+    }
+    echo json_encode($data);
+
  }
 
  function insert()
@@ -54,7 +73,7 @@ class Fullcalendar extends CI_Controller {
     'name'=>implode($name),
     'email' =>$email
    );
-   $this->fullcalendar_model->insert_event($data);
+   $this->Fullcalendar_model->insert_event($data);
 
 
 
@@ -72,7 +91,7 @@ class Fullcalendar extends CI_Controller {
     'end_event'  => $this->input->post('end')
    );
 
-   $this->fullcalendar_model->update_event($data, $this->input->post('id'));
+   $this->Fullcalendar_model->update_event($data, $this->input->post('id'));
   }
      $mail = new PHPMailer(true);
 
@@ -151,7 +170,7 @@ try {
   $name = implode($_SESSION['username']);
   if($this->input->post('id'))
   {
-   $this->fullcalendar_model->delete_event($this->input->post('id'));
+   $this->Fullcalendar_model->delete_event($this->input->post('id'));
   }
   $mail2 = new PHPMailer(true);
 

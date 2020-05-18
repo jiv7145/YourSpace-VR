@@ -24,7 +24,7 @@
                     right: null,
                 },
                 events: "<?php echo base_url(); ?>fullcalendar/load",
-                selectable: true,
+                selectable: false,
                 selectHelper: true,
                 businessHours: {
                     dow: [1, 2, 3, 4, 5],

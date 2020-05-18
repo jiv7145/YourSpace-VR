@@ -82,6 +82,7 @@ class Fullcalendar extends CI_Controller {
 
  function update()
  {
+    $email = $_SESSION['emailaddress'];
   $name = implode($_SESSION['username']);
   if($this->input->post('id'))
   {
@@ -101,14 +102,14 @@ try {
     $mail->isSMTP();                                            // Send using SMTP
     $mail->Host       = 'smtp.mailgun.org';                    // Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-    $mail->Username   = 'postmaster@sandboxaea20dd704434c90afa8bb9243767d46.mailgun.org';                     // SMTP username
-    $mail->Password   = 'ccfc97954dace942efcd0e0d9d4842c9-3e51f8d2-5dacb6e5';                               // SMTP password
+    $mail->Username   = 'admin@yourspacecounselling.net';                     // SMTP username
+    $mail->Password   = 'cd62fc8a0e80dd32f21f4db9a85ce31b-e5e67e3e-61e180c5';                               // SMTP password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
     $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
-   
+
     //Recipients
-    $mail->setFrom('postmaster@sandboxaea20dd704434c90afa8bb9243767d46.mailgun.org', 'Yourspace');
-    $mail->addAddress('devel4800test@gmail.com', $name);     // Add a recipient
+    $mail->setFrom('admin@yourspacecounselling.net', 'Yourspace');
+    $mail->addAddress($email, $name);     // Add a recipient
    
     // Content
     $mail->isHTML(true);                                  // Set email format to HTML
@@ -167,6 +168,7 @@ try {
 
  function delete()
  {
+    $email = $_SESSION['emailaddress'];
   $name = implode($_SESSION['username']);
   if($this->input->post('id'))
   {
@@ -180,14 +182,14 @@ try {
       $mail2->isSMTP();                                            // Send using SMTP
       $mail2->Host       = 'smtp.mailgun.org';                    // Set the SMTP server to send through
       $mail2->SMTPAuth   = true;                                   // Enable SMTP authentication
-      $mail2->Username   = 'postmaster@sandboxaea20dd704434c90afa8bb9243767d46.mailgun.org';                     // SMTP username
-      $mail2->Password   = 'ccfc97954dace942efcd0e0d9d4842c9-3e51f8d2-5dacb6e5';                               // SMTP password
+      $mail2->Username   = 'admin@yourspacecounselling.net';                     // SMTP username
+      $mail2->Password   = 'cd62fc8a0e80dd32f21f4db9a85ce31b-e5e67e3e-61e180c5';                               // SMTP password
       $mail2->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` encouraged
       $mail2->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
-     
+  
       //Recipients
-      $mail2->setFrom('postmaster@sandboxaea20dd704434c90afa8bb9243767d46.mailgun.org', 'Yourspace');
-      $mail2->addAddress('devel4800test@gmail.com', $name);     // Add a recipient
+      $mail2->setFrom('admin@yourspacecounselling.net', 'Yourspace');
+      $mail2->addAddress($email, $name);     // Add a recipient
      
       // Content
       $mail2->isHTML(true);                                  // Set email format to HTML

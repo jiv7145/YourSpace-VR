@@ -5,6 +5,6 @@ define('SITE_URL', 'http://localhost/yourspace/payment');
 
 $paypal = new \PayPal\Rest\ApiContext(
     new \PayPal\Auth\OAuthTokenCredential(
-        'Aa76p0OtaKXGd6lA4tifHfWbW_7UlzFVfL5lFOI8CFPo6GlpMJnFeDELRBO05L9pQ2JaIl1vgG9Lyrxb',
-        'EE5abSJwhbzw-hZ31HHVW2700pNFAZTqmhDNYiKzaWUqJmjswndGltC7eI6MMSQEw5ZFwS9nCrEs4sqG')
+        'ATEtfQ5lYVaqIgFUtzIQzSmohH3SAXlDRZmbV7rtB3gNIec-awM08xwnuzTDwBeyvP8orc74KY2FLBZG',
+        'EE5abSJwhbzw-ENhR9d4QAbmRd0Xb2_pNRCQQ8FP06nYGMoj75Mqw4VO7Xh_BbUnsUx4-8EEyMdXv85SeMTMQtnc2JX_i')
     );

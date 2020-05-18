@@ -22,7 +22,7 @@
                 <a href="#">Pricing</a>
                 <a href="#">Download</a>
                 <div id="logout">
-                    <a class="float-right" href="logout.php"> Logout </a>
+                    <a class="float-right" href="../index.php"> Logout </a>
                 </div>
 
                 <div id="setting">
@@ -45,28 +45,43 @@
 
                     // mysqli_select_db($con,'SKIR56Zums');
                      mysqli_select_db($con,'yourspace');
-                    $event = " select * from events";
+                     $email =  $_SESSION["emailaddress"];
+
+                    $event = " select * from events where email = '$email' ";
                     $result = mysqli_query($con, $event);
                     $num = mysqli_num_rows($result);
 
-                    $title = mysqli_query($con, "select title from events");
-                    $titleArray = Array();
-                    while ($row = mysqli_fetch_array($title, MYSQLI_ASSOC)) {
-                        $storeArray[] =  $row['title'];  
+                    $start = mysqli_query($con, "select start_event from events  where email = '$email'");
+                    $startArray = Array();
+                    while ($row = mysqli_fetch_array($start, MYSQLI_ASSOC)) {
+                        $startArray[] =  $row['start_event'];  
                     }
+
+                    $end = mysqli_query($con, "select end_event from events  where email = '$email'");
+                    $endArray = Array();
+                    while ($row = mysqli_fetch_array($end, MYSQLI_ASSOC)) {
+                        $endArray[] =  $row['end_event'];  
+                    }
+
+
+                    
 
                     
             for ($i = 0; $i < $num; $i++) {
                 $eachRow = "<label for='item'>
-                Appointment
-                <input type = 'text' name = 'product' class = 'form-control' value = '$storeArray[$i]'>
+                Start
+                <input type = 'text' name = 'product' class = 'form-control' value = '$startArray[$i]'>
+            </label>
+            <label for='item'>
+                End
+                <input type = 'text' name = 'product' class = 'form-control' value = '$endArray[$i]'>
             </label>
 
         <label for='amount'>
                 Price
                 <input type = 'text' name = 'price' class = 'form-control' value = '150'>
             </label>
-        <button type = 'hidden' style='margin-top: 20px' name ='title'  class='btn btn-primary float-right' type='submit' value='$storeArray[$i]' class='form-control'>Pay with Paypal</button>";
+        <button type = 'hidden' style='margin-top: 20px' name ='title'  class='btn btn-primary float-right' type='submit' value='$startArray[$i]' class='form-control'>Pay with Paypal</button>";
 
         echo "$eachRow <br>";
             }

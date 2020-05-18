@@ -60,6 +60,7 @@ class Fullcalendar extends CI_Controller {
 
   }
  }
+
  function update()
  {
   $name = implode($_SESSION['username']);

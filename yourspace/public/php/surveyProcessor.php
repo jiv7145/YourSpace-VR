@@ -108,12 +108,12 @@ try {
     // Content
     $mail2->isHTML(true);                                  // Set email format to HTML
     $mail2->Subject = 'Booking Confirmation';
-    $body   = "Hi $name, you have booked a new appointment <br>";
-    $body   .= "Date:  $date <br>";
-    $body   .= "Start: $start <br>";
-    $body   .="End:  $end <br>";
+    $body2   = "Hi $name, you have booked a new appointment <br>";
+    $body2  .= "Date:  $date <br>";
+    $body2  .= "Start: $start <br>";
+    $body2   .="End:  $end <br>";
   
-    $mail2->Body = $body;
+    $mail2->Body = $body2;
 
 
    $mail2->send();

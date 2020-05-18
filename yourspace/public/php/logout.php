@@ -2,5 +2,5 @@
 session_start();
 session_destroy();
 
-header('location:https://yourspace-web.herokuapp.com/');
+header('location: ../../index.php');
 ?> 

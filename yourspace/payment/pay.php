@@ -20,7 +20,7 @@
                 <a href="#">About</a>
                 <a href="#">Contact</a>
                 <a href="#">Pricing</a>
-                <a href="#">Download</a>
+                <a href="../public/php/download.php">Download</a>
                 <div id="logout">
                     <a class="float-right" href="../public/php/logout.php"> Logout </a>
                 </div>

@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 
-$config['base_url'] = 'http://yourspace-web.herokuapp.com/codeiAdmin/';
+$config['base_url'] = 'http://yourspacecounselling.herokuapp.com/codeiAdmin/';
 /*
 |--------------------------------------------------------------------------
 | Index File

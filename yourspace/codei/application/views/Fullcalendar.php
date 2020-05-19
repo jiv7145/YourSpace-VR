@@ -75,7 +75,7 @@
                                 success: function() {
                                     calendar.fullCalendar('refetchEvents');
                                     if(confirm("Added Successfully")){
-                                    window.location.href = "../payment/pay.php";
+                                     window.location.href = "../payment/pay.php";
                                    }
                                 }
                             })

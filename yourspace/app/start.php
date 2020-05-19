@@ -1,7 +1,7 @@
 <?php
 require '../vendor/autoload.php';
 
-define('SITE_URL', 'http://yourspacecounselling.herokuapp.com/');
+define('SITE_URL', 'https://yourspacecounselling.herokuapp.com/');
 
 $paypal = new \PayPal\Rest\ApiContext(
     new \PayPal\Auth\OAuthTokenCredential(

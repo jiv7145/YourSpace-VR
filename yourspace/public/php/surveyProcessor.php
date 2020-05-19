@@ -14,7 +14,12 @@ mysqli_select_db($con,'SKIR56Zums');
 // $con = mysqli_connect('localhost', 'root', '');
 // mysqli_select_db($con,'form');
 
+$first =  implode($_SESSION['first_user']);
+$name =  implode($_SESSION['username']);
 $email = $_SESSION['emailaddress'];
+
+if($first!= 1){
+
 $age = $_POST['age'];
 $gender = $_POST['gender'];
 
@@ -42,11 +47,45 @@ $end = $_POST['end'];
      
         echo "failed";
     }
+   
+    if(mysqli_query($con, "UPDATE usertable SET first_user=1 WHERE email = '$email'")){
+        echo "now old user";
+    }
+    else{
+        echo "fail";
+    }
+
+    $body   = " $name have booked a new appointment <br>";
+    $body   .= "Date:  $date <br>";
+    $body   .= "Start: $start <br>";
+    $body   .="End:  $end <br>";
+    $body    .= "Age:  $age <br>";
+    $body    .= "Gender: $gender <br>";
+    $body   .="Relationship Status: $relationship_status <br>";
+    $body    .="Sexual Orientation: $sexual_orientation <br>";
+    $body    .="Primary Language:  $language <br>";
+    $body .= "Employment Situation:  $employment_situation <br>";
+    $body   .="Reference: $reference <br>";
+    $body   .="Couslling Experience:  $counselling_exp <br>";
+    $body   .="Couselling Goal: $goal <br>";
+}
+
+else{
+    $email = $_SESSION['emailaddress'];
+    $date = $_POST['date'];
+$start = $_POST['start'];
+$end = $_POST['end'];
+
+    $body   = " $name have booked a new appointment <br>";
+    $body   .= "Date:  $date <br>";
+    $body   .= "Start: $start <br>";
+    $body   .="End:  $end <br>";
+
+}
 
 
 
 $mail = new PHPMailer(true);
-$name =  implode($_SESSION['username']);
 
 try {
     //Server settings
@@ -66,19 +105,6 @@ try {
     // Content
     $mail->isHTML(true);                                  // Set email format to HTML
     $mail->Subject = 'Booking Details';
-    $body   = " $name has booked a new appointment <br>";
-    $body   .= "Date:  $date <br>";
-    $body   .= "Start: $start <br>";
-    $body   .="End:  $end <br>";
-    $body    .= "Age:  $age <br>";
-    $body    .= "Gender: $gender <br>";
-    $body   .="Relationship Status: $relationship_status <br>";
-    $body    .="Sexual Orientation: $sexual_orientation <br>";
-    $body    .="Primary Language:  $language <br>";
-    $body .= "Employment Situation:  $employment_situation <br>";
-    $body   .="Reference: $reference <br>";
-    $body   .="Couslling Experience:  $counselling_exp <br>";
-    $body   .="Couselling Goal: $goal <br>";
     $mail->Body = $body;
 
 
@@ -112,6 +138,8 @@ try {
     $body2  .= "Date:  $date <br>";
     $body2  .= "Start: $start <br>";
     $body2   .="End:  $end <br>";
+    $body2   .="If you would like to get a refund, cancel the appointment on the website and request us a refund by emailing at yourspacecounselling@hotmail.com with your receipt attached.";
+
   
     $mail2->Body = $body2;
 

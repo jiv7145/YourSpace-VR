@@ -52,8 +52,10 @@ try {
     // Content
     $mail->isHTML(true);                                  // Set email format to HTML
     $mail->Subject = 'Account Deletion confirmation';
-    $mail->Body    = "Hi $name,<br> You have successfully deleted your Yourspace account";
-   
+    $body = "Hi $name,<br> You have successfully deleted your Yourspace account <br>";
+    $body   .="If you would like to get a refund, please request us a refund by emailing at yourspacecounselling@hotmail.com with your receipt attached.";
+
+    $mail->Body    = $body;
 
     $mail->send();
     echo 'Message has been sent';

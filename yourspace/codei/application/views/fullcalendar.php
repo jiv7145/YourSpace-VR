@@ -50,7 +50,11 @@
                 select: function(start, end, allDay) {
 
                     if (start.isAfter(moment())) {
-                        $("#clientaddmodal").modal('show');
+                        if(localStorage.getItem("first")!=1){
+                        $("#clientaddmodal").modal('show');}
+                        else{
+
+                        $("#secondaddmodal").modal('show');}
                         $("#date").val(moment(start).format('Y-MM-DD'));
                         $("#start").val(moment(start).format('HH:mm:ss'));
                         $("#end").val(moment(end).format('HH:mm:ss'));
@@ -74,6 +78,8 @@
                                 },
                                 success: function() {
                                     calendar.fullCalendar('refetchEvents');
+                                    localStorage.setItem('first', 1);
+
                                  window.location.reload(true);
                                    alert("You have successfully booked an appointment with YourSpace. An email will be sent to you confirming the appointment, please check your junk mail folder");
                                 }
@@ -171,7 +177,6 @@
 
 <!-- Button trigger modal -->
 
-
 <!-- Modal -->
 <div class="modal fade" id="clientaddmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -257,6 +262,22 @@
       </div>
       <div class="modal-footer">
 <button style="width:100%" type="submit" class="btn btn-primary" id="btnSubmit"> SUBMIT FORM </button> <br><br>
+     
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="secondaddmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+ 
+      <div class="modal-footer">
+<button style="width:100%" type="submit" class="btn btn-primary" id="btnSubmit"> PROCEED to CHECKOUT </button> <br><br>
      
       </div>
     </div>

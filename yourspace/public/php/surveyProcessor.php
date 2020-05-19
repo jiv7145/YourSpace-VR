@@ -50,6 +50,7 @@ $end = $_POST['end'];
    
     if(mysqli_query($con, "UPDATE usertable SET first_user=1 WHERE email = '$email'")){
         echo "now old user";
+        $_SESSION['first_user'] = 1;
     }
     else{
         echo "fail";
@@ -76,7 +77,7 @@ else{
 $start = $_POST['start'];
 $end = $_POST['end'];
 
-    $body   = " $name have booked a new appointment <br>";
+    $body   = " $name has booked a new appointment <br>";
     $body   .= "Date:  $date <br>";
     $body   .= "Start: $start <br>";
     $body   .="End:  $end <br>";

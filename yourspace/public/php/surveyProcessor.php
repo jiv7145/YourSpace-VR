@@ -56,7 +56,7 @@ $end = $_POST['end'];
         echo "fail";
     }
 
-    $body   = " $name have booked a new appointment <br>";
+    $body   = " $name has booked a new appointment <br>";
     $body   .= "Date:  $date <br>";
     $body   .= "Start: $start <br>";
     $body   .="End:  $end <br>";

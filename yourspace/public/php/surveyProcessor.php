@@ -61,7 +61,7 @@ try {
 
     //Recipients
     $mail->setFrom('admin@yourspacecounselling.net', 'Yourspace');
-    $mail->addAddress('devel4800test@gmail.com', 'Michael');     // Add a r
+    $mail->addAddress('yourspacecounselling@hotmail.com', 'Michael');     // Add a r
    
     // Content
     $mail->isHTML(true);                                  // Set email format to HTML

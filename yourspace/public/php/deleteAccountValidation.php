@@ -5,16 +5,16 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 require '../../vendor/autoload.php';
-// $con = mysqli_connect('remotemysql.com', 'SKIR56Zums', 'JioDYRliuC');
+$con = mysqli_connect('remotemysql.com', 'SKIR56Zums', 'JioDYRliuC');
 //header('location:index.php');
 //devel
-$con = mysqli_connect('localhost', 'root', '');
+// $con = mysqli_connect('localhost', 'root', '');
 
 //remote
 // $con = mysqli_connect('remotemysql.com', 'SKIR56Zums', 'JioDYRliuC');
 // mysqli_select_db($con,'SKIR56Zums');
-mysqli_select_db($con,'user');
-// mysqli_select_db($con,'SKIR56Zums');
+// mysqli_select_db($con,'user');
+mysqli_select_db($con,'SKIR56Zums');
 $email = $_POST['email'];
 $pass = $_POST['password'];
 $s = " select * from usertable where email = '$email' && password = '$pass'";

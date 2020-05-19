@@ -2,5 +2,5 @@
 session_start();
 session_destroy();
 
-header('location:https://yourspacecounselling.herokuapp.com/');
+header('location:http://www.yourspacecounselling.net/');
 ?> 

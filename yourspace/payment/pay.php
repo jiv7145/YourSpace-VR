@@ -70,16 +70,16 @@
             for ($i = 0; $i < $num; $i++) {
                 $eachRow = "<label for='item'>
                 Start
-                <input type = 'text' name = 'product' class = 'form-control' value = '$startArray[$i]'>
+                <input type = 'text' name = 'product' class = 'form-control' value = '$startArray[$i]' disabled>
             </label>
             <label for='item'>
                 End
-                <input type = 'text' name = 'product' class = 'form-control' value = '$endArray[$i]'>
+                <input type = 'text' name = 'product' class = 'form-control' value = '$endArray[$i]'disabled>
             </label>
 
         <label for='amount'>
                 Price
-                <input type = 'text' name = 'price' class = 'form-control' value = '150'>
+                <input type = 'text' name = 'price' class = 'form-control' value = '150'disabled>
             </label>
         <button type = 'hidden' style='margin-top: 20px' name ='title'  class='btn btn-primary float-right' type='submit' value='$startArray[$i]' class='form-control'>Pay with Paypal</button>";
 

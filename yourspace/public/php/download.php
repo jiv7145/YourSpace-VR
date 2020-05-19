@@ -29,7 +29,7 @@
             <div class="col-md-6 login-left" style="margin: auto">
 
                 <h3 class="subHeading"> Download Yourspace Here </h3>
-                <a href="../../test.txt" download> <button type="submit" class="btn btn-primary" id="btnDownload"> DOWNLOAD YOURSPACE </button> </a>
+                <a href="../../YourSpace.exe" download> <button type="submit" class="btn btn-primary" id="btnDownload"> DOWNLOAD YOURSPACE </button> </a>
             </div>
 
         </div>

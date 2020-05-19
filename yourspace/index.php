@@ -23,9 +23,7 @@
             </div>
         </div>
         <div id="info">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis, ut magni eaque ullam ipsa saepe dolore obcaecati repudiandae. Labore dolor impedit qui non illum perspiciatis! Dolores animi rerum optio maxime! Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Facilis, natus officia cum vitae deserunt, saepe error maxime velit unde ea voluptate accusantium minus vel! Qui, consequuntur. Nam ducimus saepe numquam! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam
-            fugiat, enim officiis consequatur ad, accusantium, unde distinctio est ratione praesentium consequuntur tempore voluptatem aut. Repellat quos nobis ab deserunt iure.
+          
         </div>
         <div class="login-box">
             <div class="row">

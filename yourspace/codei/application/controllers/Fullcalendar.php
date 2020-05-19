@@ -30,7 +30,7 @@ class Fullcalendar extends CI_Controller {
   {
    $data[] = array(
     'id' => $row['id'],
-    'title' => $row['title'],
+    // 'title' => $row['title'],
     'start' => $row['start_event'],
     'end' => $row['end_event']
    );
@@ -48,7 +48,7 @@ class Fullcalendar extends CI_Controller {
     {
      $data[] = array(
       'id' => $row['id'],
-      'title' => $row['title'],
+    //   'title' => $row['title'],
       'start' => $row['start_event'],
       'end' => $row['end_event']
      );

@@ -35,7 +35,7 @@
        
       },{
         url: "<?php echo base_url(); ?>fullcalendar/loadBooked",
-        color: "grey",
+        color: "lightgrey",
         editable: false
       }
     ],
@@ -74,7 +74,9 @@
                                 },
                                 success: function() {
                                     calendar.fullCalendar('refetchEvents');
-                                    alert("Added Successfully");
+                                    if(confirm("Added Successfully")){
+                                    window.location.href = "../payment/pay.php";
+                                   }
                                 }
                             })
 
@@ -83,7 +85,7 @@
                         alert("Please Check Our Business Hours M-F 9AM- 9PM");
                     }
                 },
-                editable: true,
+                editable: false,
 
                 eventResize: function(event) {
                     var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
@@ -131,20 +133,25 @@
                     })
                 },
                 eventClick: function(event) {
-                    if (confirm("Are you sure you want to remove it?")) {
-                        var id = event.id;
-                        $.ajax({
-                            url: "<?php echo base_url(); ?>fullcalendar/delete",
-                            type: "POST",
-                            data: {
-                                id: id
-                            },
-                            success: function() {
-                                calendar.fullCalendar('refetchEvents');
-                                alert('Event Removed');
-                            }
-                        })
-                    }
+                    if(event.source.url == "<?php echo base_url(); ?>fullcalendar/loadBooked"){
+
+                        }else{
+
+                        if (confirm("Are you sure you want to remove it?")) {
+                            var id = event.id;
+                            $.ajax({
+                                url: "<?php echo base_url(); ?>fullcalendar/delete",
+                                type: "POST",
+                                data: {
+                                    id: id
+                                },
+                                success: function() {
+                                    calendar.fullCalendar('refetchEvents');
+                                    alert('Event Removed');
+                                }
+                            })
+                        }
+                        }
                 }
             });
         });
@@ -155,7 +162,7 @@
     <br />
     <div class="container">
         <div id="header">
-            <a href="home.php">
+            <a href="../public/php/home.php">
                 <h2 id="logo"> YourSpace </h2>
             </a>
             <div class="topnav">
@@ -163,7 +170,7 @@
                 <a href="#">About</a>
                 <a href="#">Contact</a>
                 <a href="#">Pricing</a>
-                <a href="download.php">Download</a>
+                <a href="../public/php/download.php">Download</a>
             </div>
         </div>
     </div>

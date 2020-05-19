@@ -30,7 +30,8 @@ class Fullcalendar extends CI_Controller {
     'id' => $row['id'],
     'title' => $row['title'],
     'start' => $row['start_event'],
-    'end' => $row['end_event']
+    'end' => $row['end_event'],
+    'admin'=>$row['admin'],
    );
   }
   echo json_encode($data);

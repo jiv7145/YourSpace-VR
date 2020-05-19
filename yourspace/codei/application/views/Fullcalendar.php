@@ -15,6 +15,8 @@
             HideID.style.display = "none";
         }
         $(document).ready(function() {
+            $first = "<?php echo implode($_SESSION['first_user']); ?>";
+                        console.log($first);
 
             var calendar = $('#calendar').fullCalendar({
                 defaultView: 'agendaWeek',
@@ -29,16 +31,14 @@
                     center: 'title',
                     right: null,
                 },
-                eventSources: [
-      {
-        url: "<?php echo base_url(); ?>fullcalendar/load"
-       
-      },{
-        url: "<?php echo base_url(); ?>fullcalendar/loadBooked",
-        color: "lightgrey",
-        editable: false
-      }
-    ],
+                eventSources: [{
+                    url: "<?php echo base_url(); ?>fullcalendar/load"
+
+                }, {
+                    url: "<?php echo base_url(); ?>fullcalendar/loadBooked",
+                    color: "lightgrey",
+                    editable: false
+                }],
                 selectable: true,
                 selectHelper: true,
                 businessHours: {
@@ -50,16 +50,26 @@
                 select: function(start, end, allDay) {
 
                     if (start.isAfter(moment())) {
-                        $(".col-md-6").show();
-                        $("#date").val(moment(start).format('Y-MM-DD'));
-                        $("#start").val(moment(start).format('HH:mm:ss'));
-                        $("#end").val(moment(end).format('HH:mm:ss'));
 
+                        $(".date").val(moment(start).format('Y-MM-DD'));
+                        $(".start").val(moment(start).format('HH:mm:ss'));
+                        $(".end").val(moment(end).format('HH:mm:ss'));
+                        if ($first == 1) {
+                            $(".col-md-6").show();
+                         
+
+                        }else{
+
+                            $(".col-md-7").show();
+                            
+                        }
+
+                       
                         // $("#bookingDate").html("Date: "+ moment(start).format('Y-MM-DD') + "<br>" + "Time: " +moment(start).format('HH:mm:ss') + "-" + moment(end).format('HH:mm:ss')+"<br><br><br");
                         window.scrollTo(0, 0);
-                        $("#btnSubmit").click(function() {
+                        $(".btnSubmit").click(function() {
 
-                        
+
                             title = "<?php echo implode($_SESSION['username']); ?>";
                             var s = moment(start).format('Y-MM-DD HH:mm:ss');
                             var e = moment(end).format('Y-MM-DD HH:mm:ss');
@@ -74,8 +84,8 @@
                                 },
                                 success: function() {
                                     calendar.fullCalendar('refetchEvents');
-                                    if(confirm("Added Successfully")){
-                                   }
+                                    alert("You have successfully booked an appointment with YourSpace.\r\nAn email will be sent to you confirming the appointment, please check your junk mail folder if you did not get one.");
+                                    window.location.href = "../payment/pay.php";
                                 }
                             })
 
@@ -105,7 +115,7 @@
                         },
                         success: function() {
                             calendar.fullCalendar('refetchEvents');
-                            alert("Event Update");
+
                         }
                     })
                 },
@@ -132,9 +142,9 @@
                     })
                 },
                 eventClick: function(event) {
-                    if(event.source.url == "<?php echo base_url(); ?>fullcalendar/loadBooked"){
+                    if (event.source.url == "<?php echo base_url(); ?>fullcalendar/loadBooked") {
 
-                        }else{
+                    } else {
 
                         if (confirm("Are you sure you want to remove it?")) {
                             var id = event.id;
@@ -150,7 +160,7 @@
                                 }
                             })
                         }
-                        }
+                    }
                 }
             });
         });
@@ -169,91 +179,119 @@
                 <a href="#">About</a>
                 <a href="#">Contact</a>
                 <a href="#">Pricing</a>
+
                 <a href="../public/php/download.php">Download</a>
             </div>
         </div>
     </div>
 
     <div class="login-box">
-     
-            <div id="Bar" style="display:none" class="col-md-6 login" style="margin:auto">
 
-                <h3 class="subHeading"> Please complete the form below<a style="position:absolute; right:0; color:black;" href="#" onclick="Hide(Bar);">X</a></h3>
+        <div id="Bar1" style="display:none" class="col-md-6 login" style="margin:auto">
+
+            <h3 class="subHeading"> Would you like to book an appointment ? <a style="position:absolute; right:0; color:black;" href="#" onclick="Hide(Bar1);">X</a></h3>
                 <form action="../public/php/surveyProcessor.php" method="post">
-
                     <div class="form-group">
                         <label> Date <span class="required"> *</span></label>
-                        <input id="date" type="date" name="date" class="form-control" required>
+                        <input id="date" type="date" name="date" class="form-control date" required>
                     </div>
 
                     <div class="form-group">
                         <label> Start Time <span class="required"> *</span></label>
-                        <input id="start" type="time" name="start" class="form-control" required>
+                        <input  id="start" type="time" name="start" class="form-control start" required>
                     </div>
                     <div class="form-group">
                         <label> End Time <span class="required"> *</span></label>
-                        <input id="end" type="time" name="end" class="form-control" required>
+                        <input  id="end" type="time" name="end" class="form-control end" required>
                     </div>
-                    <div class="form-group">
-                        <label> Age<span class="required"> *</span></label>
-                        <select name="age" class=form-control required>
-                                <?php
-                                    for ($i=1; $i<=100; $i++)
-                                    {
-                                        ?>
-                                            <option value ="none" selected disabled hidden>Select your age</option>
-                                            <option value="<?php echo $i;?>"><?php echo $i;?></option>
-                                        <?php
-                                    }
-
-                                ?>
-                                </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label> Gender<span class="required"> *</span></label>
-                        <input type="text" name="gender" class="form-control" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label> Relationship Status</label>
-                        <input type="text" name="relationship_status" class="form-control">
-                    </div>
-
-                    <div class="form-group">
-                        <label> Sexual Orientation</label>
-                        <input type="text" name="sexual_orientation" class="form-control">
-                    </div>
-
-                    <div class="form-group">
-                        <label> Primary Language<span class="required"> *</span></label>
-                        <input type="text" name="language" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label> Employment Situation<span class="required"> *</span></label>
-                        <input type="text" name="employment_situation" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label> Did anyone refer you? </label>
-                        <input type="text" name="reference" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label> Your counselling experience</label>
-                        <input type="text" name="counselling_exp" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label> Your counselling goal<span class="required"> *</span></label>
-                        <input type="text" name="goal" class="form-control" required>
-                    </div>
-
-                    <button style="width:100%" type="submit" class="btn btn-primary" id="btnSubmit"> SUBMIT FORM </button> <br><br>
+                    <button style="width:100%" type="submit" class="btn btn-primary btnSubmit" > PROCEED TO CHECKOUT</button>
                 </form>
-            </div>
+        </div>
+
+
+        <div id="Bar2" style="display:none" class="col-md-7 login" style="margin:auto">
+
+            <h3 class="subHeading"> Please complete the form below<a style="position:absolute; right:0; color:black;" href="#" onclick="Hide(Bar2);">X</a></h3>
+            <form action="../public/php/surveyProcessor.php" method="post">
+
+                <div class="form-group">
+                    <label> Date <span class="required"> *</span></label>
+                    <input  id="date" type="date" name="date" class="form-control date" required>
+                </div>
+
+                <div class="form-group">
+                    <label> Start Time <span class="required"> *</span></label>
+                    <input  id="start" type="time" name="start" class="form-control start" required>
+                </div>
+                <div class="form-group">
+                    <label> End Time <span class="required"> *</span></label>
+                    <input  id="end" type="time" name="end" class="form-control end" required>
+                </div>
+                <div class="form-group">
+                    <label> Age<span class="required"> *</span></label>
+                    <select name="age" class=form-control required>
+            <?php
+                
+                    ?>
+                        <option value ="Under 18" >Under 18</option>
+                        <option value ="18-25" >18-25</option>
+                        <option value ="26-64" >26-64</option>
+                        <option value ="65+" >65+</option>
+                        
+                        <!-- <option value="<?php echo $i;?>"><?php echo $i;?></option> -->
+                    <?php
+               
+
+            ?>
+            </select>
+                </div>
+
+                <div class="form-group">
+                    <label> Gender</label>
+                    <input type="text" name="gender" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label> Relationship Status</label>
+                    <input type="text" name="relationship_status" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label> Sexual Orientation</label>
+                    <input type="text" name="sexual_orientation" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label> Primary Language</label>
+                    <input type="text" name="language" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label> Employment Situation</label>
+                    <input type="text" name="employment_situation" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label> Did anyone refer you? </label>
+                    <input type="text" name="reference" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label> Your counselling experience</label>
+                    <input type="text" name="counselling_exp" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label> Your counselling goal<span class="required"> *</span></label>
+                    <input type="text" name="goal" class="form-control" required>
+                </div>
+                <button style="width:100%" type="submit" class="btn btn-primary btnSubmit" > SUBMIT FORM </button> <br><br>
+
+            </form>
+
+
+        </div>
     </div>
     <div class="container">
         <div id="calendar"></div>
     </div>
- 
+
 </body>
 
 </html>

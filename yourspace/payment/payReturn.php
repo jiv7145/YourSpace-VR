@@ -42,8 +42,7 @@ die();
 
 
 $title = $_SESSION['title'];
-$paid = " delete from events where start_event = '$title'";
-mysqli_query($con, $paid);
+mysqli_query($con, "UPDATE events SET paid='true' WHERE start_event = '$title'");
 
 // echo 'Payment made!';
 // header('location:payConfirmation.php');
@@ -74,6 +73,7 @@ mysqli_query($con, $paid);
                 <a href="#">Contact</a>
                 <a href="#">Pricing</a>
                 <a href="download.php">Download</a>
+                <a href="../codei">Booking</a>
             </div>
         </div>
 

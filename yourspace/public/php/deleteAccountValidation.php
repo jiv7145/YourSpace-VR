@@ -53,7 +53,6 @@ try {
     $mail->isHTML(true);                                  // Set email format to HTML
     $mail->Subject = 'Account Deletion confirmation';
     $body = "Hi $name,<br> You have successfully deleted your Yourspace account <br>";
-    $body   .="If you would like to get a refund, please request us a refund by emailing at yourspacecounselling@hotmail.com with your receipt attached.";
 
     $mail->Body    = $body;
 
@@ -92,6 +91,7 @@ try {
                     <a href="#">Contact</a>
                     <a href="#">Pricing</a>
                     <a href="download.php">Download</a>
+                    <a href="../../codei">Booking</a>
                 </div>
             </div>
 

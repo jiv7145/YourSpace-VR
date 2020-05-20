@@ -195,7 +195,8 @@ try {
       $mail2->isHTML(true);                                  // Set email format to HTML
       $mail2->Subject = 'Booking Deletion';
      
-      $body = "Hi $name, this is to confirm that your appointment has been cancelled";
+      $body = "Hi $name, this is to confirm that your appointment has been cancelled <br>";
+      $body .= "If you need to cancel your appointment for any reason before 24 hours of your appointment, you will be entitled to a full refund.<br>Cancel your appointment on the website and request a refund by emailing yourspacecounselling@hotmail.com with your PayPal Transaction ID attached.<br>If you cancel within 24 hours of your appointment, you are no longer entitled to a refund at this time.";
       $mail2->Body  = $body;
      
   

@@ -138,8 +138,8 @@ try {
     $body2   = "Hi $name, you have booked a new appointment <br>";
     $body2  .= "Date:  $date <br>";
     $body2  .= "Start: $start <br>";
-    $body2   .="End:  $end <br>";
-    $body2   .="If you would like to get a refund, cancel the appointment on the website and request us a refund by emailing at yourspacecounselling@hotmail.com with your receipt attached.";
+    $body2   .="End:  $end <br><br><br>";
+    $body2   .="If you need to cancel your appointment for any reason before 24 hours of your appointment, you will be entitled to a full refund. Cancel your appointment on the website and request a refund by emailing yourspacecounselling@hotmail.com with your PayPal Transaction ID attached. If you cancel within 24 hours of your appointment, you are no longer entitled to a refund at this time.";
 
   
     $mail2->Body = $body2;

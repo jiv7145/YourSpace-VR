@@ -29,6 +29,7 @@ if(!isset($_SESSION['username'])){
                     <a href="#">Contact</a>
                     <a href="#">Pricing</a>
                     <a href="download.php">Download</a>
+                    <a href="../../codei">Booking</a>
                     <div id="logout">
                         <a class="float-right" href="logout.php"> Logout </a>
                     </div>
@@ -47,9 +48,11 @@ if(!isset($_SESSION['username'])){
 
                     <div class="sidenav">
                         <form action="../../codei" method="post">
-                            <button style="margin-left:20px" type="submit" class="btn btn-primary btnsetting" id="btnBooking"> Book Appointment </button>
+                            <button style="margin-left:20px" type="submit" class="btn btn-primary btnsetting" id="btnBooking"> Appointment Calendar</button>
                         </form>
-                    
+                        <form action="list.php" method ="">
+                            <button style="margin-left:20px" type="submit" class="btn btn-primary btnsetting" id="btnList"> Upcoming Appointments</button>
+                        </form>
                         <form action = "deleteAccount.php" method = "post">
                             <button style="margin-left:20px" type="submit" class="btn btn-primary btnsetting"  id="btnDeleteAccount"> Delete Account </button>
                         </form>

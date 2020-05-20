@@ -64,6 +64,7 @@ if($num == 1){
                     <a href="#">Contact</a>
                     <a href="#">Pricing</a>
                     <a href="download.php">Download</a>
+                    <a href="../../codei">Booking</a>
                 </div>
             </div>
 

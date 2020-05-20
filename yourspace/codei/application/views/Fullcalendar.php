@@ -26,6 +26,7 @@
                 eventOverlap: false,
                 selectOverlap: false,
                 editable: true,
+                allDaySlot: false,
                 header: {
                     left: 'prev,next today',
                     center: 'title',
@@ -39,6 +40,7 @@
                     color: "lightgrey",
                     editable: false
                 }],
+                contentHeight:"auto",
                 selectable: true,
                 selectHelper: true,
                 businessHours: {
@@ -179,8 +181,8 @@
                 <a href="#">About</a>
                 <a href="#">Contact</a>
                 <a href="#">Pricing</a>
-
                 <a href="../public/php/download.php">Download</a>
+                <a href="#">Booking</a>
             </div>
         </div>
     </div>
@@ -290,6 +292,8 @@
     </div>
     <div class="container">
         <div id="calendar"></div>
+        <br>
+        <br>
     </div>
 
 </body>

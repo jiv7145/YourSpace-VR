@@ -22,7 +22,7 @@
                 <a href="#">Contact</a>
                 <a href="#">Pricing</a>
                 <a href="download.php">Download</a>
-                <a href="../../codei">Pricing</a>
+
             </div>
         </div>
 

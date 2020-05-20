@@ -20,6 +20,8 @@
                eventOverlap:false,
                selectOverlap:false,
                 editable: true,
+                allDaySlot: false,
+                contentHeight:"auto",
                 header: {
                     left: 'prev,next today',
                     center: 'title',
@@ -147,6 +149,8 @@
   
     <div class="container">
         <div id="calendar"></div>
+        <br>
+        <br>
     </div>
 </body>
 

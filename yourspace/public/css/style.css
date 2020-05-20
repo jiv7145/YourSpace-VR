@@ -87,6 +87,13 @@ h1 {
     margin-bottom: 0;
 }
 
+#btnAptCancel {
+    background-color: red !important;
+    border-color: red;
+    position: relative;
+    top: -55px;
+}
+
 .btnsetting {
     margin-bottom: 10px;
 }

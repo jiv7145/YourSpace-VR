@@ -15,7 +15,6 @@
         <div id="header">
             <h2 id="logo"> YourSpace </h2>
             <div class="topnav">
-
                 <a href="#">About</a>
                 <a href="#">Contact</a>
                 <a href="#">Pricing</a>

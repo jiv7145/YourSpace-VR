@@ -44,7 +44,7 @@ if(!isset($_SESSION['username'])){
 
                     <div class="sidenav">
                         <form action="../../codeiAdmin" method="post">
-                            <button style="margin-left:20px" type="submit" class="btn btn-primary btnsetting" id="btnBooking"> Upcoming Appointment</button>
+                            <button style="margin-left:20px" type="submit" class="btn btn-primary btnsetting" id="btnBooking"> Upcoming Appointments</button>
                         </form>
                     </div>
 
